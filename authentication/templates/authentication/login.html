@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #79dd81;
+        }
+        .login-box {
+            width: 330px;
+            height: 300px;
+            margin: 200px auto;
+            padding: 20px;
+            background: #52d45d;
+            border-radius: 5px;
+            border:none;
+
+        }
+        input {
+            width: 80%;
+            padding:10px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 3px;
+            colour: #333;
+
+        }
+        button {
+            width: 90%;
+            padding: 10px;
+            margin: 15px 0;
+            background: #5c94d0;
+            color: white;
+            border: none;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-box">
+    <h2>Login</h2>
+
+    {% if messages %}
+        {% for message in messages %}
+            <p style="color:red;">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+</body>
+</html>
+
